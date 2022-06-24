@@ -9,6 +9,7 @@ defmodule RockeliveryWeb.Router do
     pipe_through :api
 
     get "/", WelcomeController, :index
+    resources "/users", UsersController, except: [:edit, :new]
   end
 
   # Enables LiveDashboard only for development
