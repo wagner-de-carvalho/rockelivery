@@ -23,6 +23,9 @@ config :rockelivery, RockeliveryWeb.Endpoint,
 # In test we don't send emails.
 config :rockelivery, Rockelivery.Mailer, adapter: Swoosh.Adapters.Test
 
+# Encryption reduce the number of rounds.
+config :pbkdf2_elixir, :rounds, 1
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 
