@@ -5,7 +5,7 @@ defmodule Rockelivery.Repo.Migrations.CreateUsersTable do
     create table(:users, primary_key: false) do
       add :id, :binary_id, primary_key: true
       add :address, :string
-      add :age, :string
+      add :age, :integer
       add :cep, :string
       add :cpf, :string
       add :email, :string
