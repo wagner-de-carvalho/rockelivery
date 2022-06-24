@@ -32,3 +32,6 @@ rockelivery-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Ignore test files
+.iex.exs
+
