@@ -27,5 +27,5 @@ defmodule RockeliveryWeb.UsersController do
       |> put_status(:no_content)
       |> text("")
     end
-  end
+  end 
 end

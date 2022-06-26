@@ -9,8 +9,8 @@ defmodule Rockelivery.Users.Get do
     end
   end
 
-  defp get(id) do
-    case Repo.get(User, id) do
+  defp get(uuid) do
+    case Repo.get(User, uuid) do
       nil -> {:error, Error.build_user_not_found_error()}
       user -> {:ok, user}
     end
