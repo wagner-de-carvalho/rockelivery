@@ -13,19 +13,27 @@ defmodule RockeliveryWeb.UsersController do
     end
   end
 
-  def show(conn, %{"id" => uuid}) do
-    with {:ok, %User{} = user} <- Rockelivery.get_user_by_id(uuid) do
-      conn
-      |> put_status(:ok)
-      |> render("show.json", user: user)
-    end
-  end
-
   def delete(conn, %{"id" => uuid}) do
     with {:ok, %User{}} <- Rockelivery.delete_user(uuid) do
       conn
       |> put_status(:no_content)
       |> text("")
     end
-  end 
+  end
+
+  def show(conn, %{"id" => uuid}) do
+    with {:ok, %User{} = user} <- Rockelivery.get_user_by_id(uuid) do
+      conn
+      |> put_status(:ok)
+      |> render("user.json", user: user)
+    end
+  end
+
+  def update(conn, params) do
+    with {:ok, %User{} = user} <- Rockelivery.update_user(params) do
+      conn
+      |> put_status(:ok)
+      |> render("user.json", user: user)
+    end
+  end
 end
