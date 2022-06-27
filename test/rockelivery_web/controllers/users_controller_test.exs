@@ -41,4 +41,10 @@ defmodule RockeliveryWeb.UsersControllerTest do
       assert expected_response == response
     end
   end
+
+  describe "delete/2" do
+    test "when there is a user with the given id, deletes the user", %{conn: conn} do
+      insert(:user)
+    end
+  end
 end
