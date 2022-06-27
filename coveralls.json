@@ -1,5 +1,14 @@
 {
     "skip_files": [
-
+        "lib/rockelivery/application.ex",
+        "lib/rockelivery/repo.ex",
+        "lib/rockelivery_web.ex",
+        "lib/rockelivery_web/channels/*",
+        "lib/rockelivery_web/endpoint.ex",
+        "lib/rockelivery_web/gettext.ex",
+        "lib/rockelivery_web/router.ex",
+        "lib/rockelivery_web/telemetry.ex",
+        "lib/rockelivery_web/views/*",
+        "test/support"
     ]
 }

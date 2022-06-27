@@ -14,6 +14,7 @@ defmodule RockeliveryWeb.Router do
     resources "/users", UsersController, except: [:edit, :new]
   end
 
+  # coveralls-ignore-start
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
@@ -42,4 +43,6 @@ defmodule RockeliveryWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+
+  # coveralls-ignore-stop
 end
