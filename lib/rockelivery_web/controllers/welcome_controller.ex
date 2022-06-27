@@ -6,5 +6,4 @@ defmodule RockeliveryWeb.WelcomeController do
     |> put_status(:ok)
     |> json(%{ok: "Bem-vindo!"})
   end
-
 end
