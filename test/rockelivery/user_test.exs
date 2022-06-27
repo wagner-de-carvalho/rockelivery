@@ -2,18 +2,11 @@ defmodule Rockelivery.UserTest do
   use Rockelivery.DataCase, async: true
   alias Ecto.Changeset
   alias Rockelivery.User
+  import Rockelivery.Factory
 
   describe "changeset/2" do
     setup do
-      params = %{
-        age: 30,
-        address: "Rua ABC",
-        cep: "29160100",
-        cpf: "00100200300",
-        email: "fulano@mail.com",
-        name: "Fulano",
-        password: "1234567"
-      }
+      params = build(:user_params)
 
       {:ok, params: params}
     end
