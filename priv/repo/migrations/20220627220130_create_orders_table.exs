@@ -1,6 +1,5 @@
 defmodule Rockelivery.Repo.Migrations.CreateOrdersTable do
   use Ecto.Migration
-  alias Rockelivery.{Item, User}
 
   def change do
     create table(:orders, primary_key: false) do
