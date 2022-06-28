@@ -15,7 +15,6 @@ defmodule Rockelivery.Order do
     field :address, :string
     field :comments, :string
     field :payment_method, Ecto.Enum, values: @payment_methods
-  
     many_to_many :items, Item, join_through: "orders_items"
     belongs_to :user, User
 
