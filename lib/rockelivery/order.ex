@@ -4,18 +4,20 @@ defmodule Rockelivery.Order do
   import Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
+  @foreign_key_type :binary_id
+
   @required_params [:address, :comments, :payment_method, :user_id]
   @payment_methods [:debt_card, :credit_card, :money]
+
   @derive {Jason.Encoder, only: @required_params ++ [:id]}
 
   schema "orders" do
     field :address, :string
     field :comments, :string
     field :payment_method, Ecto.Enum, values: @payment_methods
-    field :user_id, :string
-
+  
     many_to_many :items, Item, join_through: "orders_items"
-    belongs_to :users, User
+    belongs_to :user, User
 
     timestamps()
   end
