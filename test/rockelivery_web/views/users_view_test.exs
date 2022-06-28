@@ -1,7 +1,7 @@
 defmodule RockeliveryWeb.UsersViewTest do
   use RockeliveryWeb.ConnCase
-  alias RockeliveryWeb.UsersView
   alias Rockelivery.User
+  alias RockeliveryWeb.UsersView
   import Phoenix.View
   import Rockelivery.Factory
 
