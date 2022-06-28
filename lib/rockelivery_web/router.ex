@@ -13,6 +13,7 @@ defmodule RockeliveryWeb.Router do
     get "/", WelcomeController, :index
     resources "/users", UsersController, except: [:edit, :new]
     post "/items", ItemsController, :create
+    post "/orders", OrdersController, :create
   end
 
   # coveralls-ignore-start
