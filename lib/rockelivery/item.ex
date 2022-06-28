@@ -1,6 +1,7 @@
 defmodule Rockelivery.Item do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Rockelivery.Order
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @required_params [:category, :description, :photo, :price]
@@ -12,6 +13,8 @@ defmodule Rockelivery.Item do
     field :description, :string
     field :photo, :string
     field :price, :decimal
+
+    many_to_many :orders, Order, join_through: "orders_items"
 
     timestamps()
   end
