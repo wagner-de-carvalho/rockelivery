@@ -1,24 +1,20 @@
 defmodule Rockelivery.Users.Create do
   alias Rockelivery.{Error, Repo, User}
   alias Rockelivery.ViaCep.Client
+  import Ecto.Changeset
 
   def call(%{"cep" => cep} = params) do
-    case Client.get_cep_info(cep) do
-      {:ok, cep_info} -> create_user(params, cep_info)
-      {:error, _result} = error -> error
+    with {:ok, %User{} = user} <- User.build(params),
+         {:ok, cep_info} <- Client.get_cep_info(cep) do
+      create_user(user, cep_info)
     end
   end
 
-  defp create_user(params, cep_info) do
-    params
-    |> add_cep_info(cep_info)
-    |> User.changeset()
+  defp create_user(user, %{"logradouro" => address}) do
+    user
+    |> change(address: address)
     |> Repo.insert()
     |> handle_insert()
-  end
-
-  defp add_cep_info(params, %{"logradouro" => address}) do
-    %{params | "address" => address}
   end
 
   defp handle_insert({:ok, %User{} = user}), do: {:ok, user}
