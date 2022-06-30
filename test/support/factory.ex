@@ -18,7 +18,7 @@ defmodule Rockelivery.Factory do
     %{
       "age" => 30,
       "address" => "Rua ABC",
-      "cep" => "29160100",
+      "cep" => "29160325",
       "cpf" => "00100200300",
       "email" => "fulano@mail.com",
       "name" => "Fulano",
