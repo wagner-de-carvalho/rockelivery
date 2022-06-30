@@ -22,4 +22,8 @@ defmodule Rockelivery.Users.Create do
     |> change(address: address)
     |> Repo.insert()
   end
+
+  defp client do
+    Application.fetch_env!(:rockelivery, __MODULE__)[:via_cep_adapter]
+  end
 end
