@@ -14,7 +14,7 @@ defmodule RockeliveryWeb.UsersControllerTest do
       assert %{
                "message" => "User created!",
                "user" => %{
-                 "address" => "Rua ABC",
+                 "address" => _address,
                  "age" => 30,
                  "cpf" => "00100200300",
                  "email" => "fulano@mail.com",
