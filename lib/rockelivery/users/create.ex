@@ -3,7 +3,8 @@ defmodule Rockelivery.Users.Create do
   alias Rockelivery.ViaCep.Client
   import Ecto.Changeset
 
-  def call(%{"cep" => cep} = params) do
+  def call(params) do
+    cep = Map.get(params, "cep")
     changeset = User.changeset(params)
 
     with {:ok, %User{}} <- User.build(changeset),
