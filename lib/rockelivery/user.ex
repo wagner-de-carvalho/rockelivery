@@ -23,11 +23,7 @@ defmodule Rockelivery.User do
     timestamps()
   end
 
-  def build(params) do
-    params
-    |> changeset()
-    |> apply_action(:create)
-  end
+  def build(changeset), do: apply_action(changeset, :create)
 
   def changeset(struct \\ %__MODULE__{}, params) do
     struct

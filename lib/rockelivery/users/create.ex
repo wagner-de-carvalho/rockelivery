@@ -4,22 +4,21 @@ defmodule Rockelivery.Users.Create do
   import Ecto.Changeset
 
   def call(%{"cep" => cep} = params) do
-    with {:ok, %User{} = user} <- User.build(params),
-         {:ok, cep_info} <- Client.get_cep_info(cep) do
-      create_user(user, cep_info)
+    changeset = User.changeset(params)
+
+    with {:ok, %User{}} <- User.build(changeset),
+         {:ok, cep_info} <- Client.get_cep_info(cep),
+         {:ok, %User{}} = user <- add_cep_info(changeset, cep_info) do
+      user
+    else
+      {:error, %Error{}} = error -> error
+      {:error, result} -> {:error, Error.build(:bad_request, result)}
     end
   end
 
-  defp create_user(user, %{"logradouro" => address}) do
-    user
+  defp add_cep_info(changeset, %{"logradouro" => address}) do
+    changeset
     |> change(address: address)
     |> Repo.insert()
-    |> handle_insert()
-  end
-
-  defp handle_insert({:ok, %User{} = user}), do: {:ok, user}
-
-  defp handle_insert({:error, error}) do
-    {:error, Error.build(:bad_request, error)}
   end
 end
