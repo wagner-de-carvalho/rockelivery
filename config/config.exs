@@ -10,6 +10,8 @@ import Config
 config :rockelivery,
   ecto_repos: [Rockelivery.Repo]
 
+config :rockelivery, Rockelivery.Users.Create, via_cep_adapter: Rockelivery.ViaCep.Client
+
 # Configures the endpoint
 config :rockelivery, RockeliveryWeb.Endpoint,
   url: [host: "localhost"],
