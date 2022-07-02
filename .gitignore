@@ -34,4 +34,5 @@ npm-debug.log
 
 # Ignore test files
 .iex.exs
+report.csv
 
