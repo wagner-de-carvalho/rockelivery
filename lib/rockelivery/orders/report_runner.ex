@@ -10,13 +10,13 @@ defmodule Rockelivery.Orders.ReportRunner do
   end
 
   def start_link(_initial_value) do
-    Logger.info("Start ReportRunner ...", ansi_color: :blue)
+    Logger.info("ReportRunner Started!", ansi_color: :blue)
     GenServer.start_link(__MODULE__, %{}, name: __MODULE__)
   end
 
   @impl true
   def handle_info(:generate, state) do
-    Logger.info("Generate Report ...", ansi_color: :blue)
+    Logger.info("Generate Report!", ansi_color: :blue)
     Report.create()
     schedule_report_generation()
     {:noreply, state}
