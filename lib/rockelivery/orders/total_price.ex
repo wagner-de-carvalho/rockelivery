@@ -6,5 +6,4 @@ defmodule Rockelivery.Orders.TotalPrice do
   end
 
   defp sum_prices(%Item{price: price}, acc), do: Decimal.add(price, acc)
-
 end

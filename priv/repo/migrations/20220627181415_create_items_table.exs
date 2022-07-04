@@ -7,7 +7,7 @@ defmodule Rockelivery.Repo.Migrations.CreateItemsTable do
       add :category, :item_category
       add :description, :string
       add :price, :decimal
-      add :photo,:string
+      add :photo, :string
 
       timestamps()
     end

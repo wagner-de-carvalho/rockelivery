@@ -1,7 +1,7 @@
 defmodule RockeliveryWeb.UsersControllerTest do
   use RockeliveryWeb.ConnCase, async: true
-  alias RockeliveryWeb.Auth.Guardian
   alias Rockelivery.ViaCep.ClientMock
+  alias RockeliveryWeb.Auth.Guardian
   import Mox
   import Rockelivery.Factory
 

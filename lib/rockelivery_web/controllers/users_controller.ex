@@ -7,7 +7,7 @@ defmodule RockeliveryWeb.UsersController do
 
   def create(conn, params) do
     with {:ok, %User{} = user} <- Rockelivery.create_user(params),
-    {:ok, token, _claims} <- Guardian.encode_and_sign(user) do
+         {:ok, token, _claims} <- Guardian.encode_and_sign(user) do
       conn
       |> put_status(:created)
       |> render("create.json", token: token, user: user)
@@ -30,7 +30,7 @@ defmodule RockeliveryWeb.UsersController do
     end
   end
 
-    def sign_in(conn, params) do
+  def sign_in(conn, params) do
     with {:ok, token} <- Guardian.authenticate(params) do
       conn
       |> put_status(:created)
